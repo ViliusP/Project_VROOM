@@ -42,6 +42,11 @@ module.exports = (options) => ({
         use: ['style-loader', 'css-loader'],
       },
       {
+      test: /\.sass$/,
+      include: /node_modules/,
+      loaders: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
         test: /\.(eot|svg|otf|ttf|woff|woff2)$/,
         use: 'file-loader',
       },
@@ -87,7 +92,6 @@ module.exports = (options) => ({
       // make fetch available
       fetch: 'exports-loader?self.fetch!whatwg-fetch',
     }),
-
     // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
     // inside your code for any environment checks; UglifyJS will automatically
     // drop any unreachable code.
