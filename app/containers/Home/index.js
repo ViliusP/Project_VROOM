@@ -28,7 +28,6 @@ export class Home extends React.PureComponent { // eslint-disable-line react/pre
           <title>Home</title>
           <meta name="description" content="Description of Home" />
         </Helmet>
-
         <List/>
       </div>
     );

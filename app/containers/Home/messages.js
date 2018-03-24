@@ -10,8 +10,4 @@ export default defineMessages({
     id: 'app.containers.Home.header',
     defaultMessage: 'This is Home container !',
   },
-  textt: { 
-    id: 'app.containers.home.textt',
-    defaultMessage: 'This is our new project'
-  },
 });

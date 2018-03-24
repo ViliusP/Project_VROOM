@@ -10,4 +10,19 @@ export default defineMessages({
     id: 'app.components.ListItem.header',
     defaultMessage: 'This is the ListItem component !',
   },
+
+  cost: {
+    id: 'app.components.ListItem.cost',
+    defaultMessage: "Cost per person"
+  },
+
+  space: {
+    id: 'app.components.ListItem.space',
+    defaultMessage: "Free space"
+  },
+
+  route: {
+    id: 'app.components.ListItem.route',
+    defaultMessage: "Route"
+  },
 });

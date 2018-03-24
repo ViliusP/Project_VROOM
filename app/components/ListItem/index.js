@@ -10,17 +10,18 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
-
+import Wrapper from './Wrapper';
+import Item from './Item';
 function ListItem(props) {
   return (
-    <div>
+    <Wrapper>
       <p> {props.name} </p> 
       <ul>
-        <li> Kaina: {props.cost} $</li>
-        <li> Laisva vieta: {props.space} </li> 
-        <li> Maršrutas: {props.startCity} - {props.endCity} </li> 
+        <item> <FormattedMessage {...messages.cost} />: {props.cost} $</item>
+        <item> <FormattedMessage {...messages.space} />: {props.space} </item> 
+        <item> <FormattedMessage {...messages.route} />: {props.startCity} - {props.endCity} </item> 
       </ul>
-    </div>
+      </Wrapper>
   );
 }
 
