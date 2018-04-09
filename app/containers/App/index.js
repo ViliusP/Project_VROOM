@@ -13,20 +13,24 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { Provider} from 'react-redux';
 
-import Home from 'containers/Home/Loadable';
+import Home from 'containers/Home/';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Header from './../../components/Header/';
-
+import Header from 'components/Header/';
+import Footer from 'components/Footer/';
+import SearchTrips from 'containers/SearchTrips';
 
 export default function App() {
   return (
     <div>
       <Header/>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component = {Home}/>
+        <Route exact path="/trips/search" component={SearchTrips} />
         <Route component={NotFoundPage} />
       </Switch>
+      <Footer/>
     </div>
   );
 }
