@@ -14,17 +14,18 @@ import NavDropdown from './NavDropdown';
 import NavMenu from './NavMenu';
 import NavDivider from './NavDivider';
 import {NavItem, NavItemDropDown} from './NavItem';
+import Container from '../Container';
 function Header() { 
   let menuID = 'menu';
    {
     return (
       <NavBar>
-
+        <Container>
         <NavBrand>
           <HeaderLink to="/">
               <img src = {Logo} alt={"Logo"}/>
             </HeaderLink>
-            <NavBurger data-target = 'NavMenu'>
+            <NavBurger>
               <span></span>
               <span></span>
               <span></span>
@@ -36,7 +37,7 @@ function Header() {
           <HeaderLink to="/">
             <FormattedMessage {...messages.home} />
           </HeaderLink>
-          <HeaderLink to="/ManageTrips/">
+          <HeaderLink to="/trips/search">
             <FormattedMessage {...messages.manage} />
           </HeaderLink>
           </NavBarLeft>
@@ -63,7 +64,7 @@ function Header() {
           </NavBarRight>
         </NavMenu>
 
-
+      </Container>
       </NavBar>
     );
   }

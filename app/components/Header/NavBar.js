@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
-
 const NavBar = styled.nav.attrs({
-  className: 'navbar is-primary is transparent',
+  className: 'navbar is-primary has-shadow',
 })`
-  padding: 0% 6%;
 `
-
 
 export default NavBar;

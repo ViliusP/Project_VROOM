@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import 'bulma/css/bulma.css'
-
 
 const NavItem = styled.a.attrs({
   className: 'navbar-item',

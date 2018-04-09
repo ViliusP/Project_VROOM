@@ -13,24 +13,39 @@ import messages from './messages';
 import Wrapper from './Wrapper';
 import Item from './Item';
 function ListItem(props) {
+  const {
+    id, 
+    city1, 
+    city2, 
+    city3, 
+    city4, 
+    city5,
+    departure_from,
+    departure_to,
+    cost,
+    space,
+    driver
+  } = props.item;
   return (
     <Wrapper>
-      <p> {props.name} </p> 
+      <p> {driver} </p> 
       <ul>
-        <item> <FormattedMessage {...messages.cost} />: {props.cost} $</item>
-        <item> <FormattedMessage {...messages.space} />: {props.space} </item> 
-        <item> <FormattedMessage {...messages.route} />: {props.startCity} - {props.endCity} </item> 
+        <item> <FormattedMessage {...messages.cost} />: {cost} $</item>
+        <item> <FormattedMessage {...messages.space} />: {space} </item> 
+        <item> <FormattedMessage {...messages.route} />: {city1} - {city5} </item> 
       </ul>
       </Wrapper>
   );
 }
 
 ListItem.propTypes = {
-  name: propTypes.string,
-  cost: propTypes.number,
-  space: propTypes.string,
-  startCity: propTypes.string,
-  endCity: propTypes.string
+ /* trip: propTypes.shape({
+    cost: propTypes.string,
+    space: propTypes.string,
+    startCity: propTypes.string,
+    endCity: propTypes.string,
+    name: propTypes.string,
+  })*/
 };
 
 ListItem.default

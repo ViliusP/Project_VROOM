@@ -1,6 +1,6 @@
 /**
  *
- * Home
+ * SearchTrips
  *
  */
 
@@ -10,24 +10,23 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import { compose } from 'redux';
 import Container from 'components/Container';
+import TripsList from 'containers/TripsList/Loadable';
 
 import messages from './messages';
 
-function Home() {
-  return (
-    <div>
-      <Container>
-      <div className='columns'>  
-        <div className='column'>  
-          Hello everybody
-        </div>
+export class SearchTrips extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  render() {
+    return (
+      <div>
+        <Container>
+          <TripsList/>
+        </Container>
       </div>
-      </Container>
-    </div>
-  );
+    );
+  }
 }
 
-Home.propTypes = {
+SearchTrips.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
@@ -42,4 +41,4 @@ const withConnect = connect(null, mapDispatchToProps);
 
 export default compose(
   withConnect,
-)(Home);
+)(SearchTrips);
