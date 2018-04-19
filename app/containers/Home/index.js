@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import { compose } from 'redux';
 import Container from 'components/Container';
+import Modal from 'containers/Modal/Loadable';
 
 import messages from './messages';
 
@@ -22,6 +23,7 @@ function Home() {
           Hello everybody
         </div>
       </div>
+      <Modal modalButton="Open Modal" modalContent="Testing"/>
       </Container>
     </div>
   );
