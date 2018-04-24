@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import 'bulma/css/bulma.css'
 
 const Wrapper = styled.div.attrs({
     className: 'column',

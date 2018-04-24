@@ -20,6 +20,7 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header/';
 import Footer from 'components/Footer/';
 import SearchTrips from 'containers/SearchTrips';
+import ManageTrips from 'containers/ManageTrips';
 export default function App() {
   return (
     <div>
@@ -27,6 +28,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" component = {Home}/>
         <Route exact path="/trips/search" component={SearchTrips} />
+        <Route exact path="/trips/manage" component={ManageTrips} />
         <Route component={NotFoundPage} />
       </Switch>
       <Footer/>

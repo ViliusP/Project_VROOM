@@ -38,6 +38,9 @@ function Header() {
             <FormattedMessage {...messages.home} />
           </HeaderLink>
           <HeaderLink to="/trips/search">
+            <FormattedMessage {...messages.search} />
+          </HeaderLink>
+          <HeaderLink to="/trips/manage">
             <FormattedMessage {...messages.manage} />
           </HeaderLink>
           </NavBarLeft>

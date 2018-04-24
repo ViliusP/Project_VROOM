@@ -12,6 +12,10 @@ export default defineMessages({
   },
   manage: {
     id: 'app.components.Header.manage',
+    defaultMessage: 'Manage VROOMS!',
+  },
+  search: {
+    id: 'app.components.Header.manage',
     defaultMessage: 'I want to VROOM!',
   },
 });
