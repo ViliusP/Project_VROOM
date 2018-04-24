@@ -1,4 +1,4 @@
-import { take, call, put, select, takeLatest } from 'redux-saga/effects';
+import { take, call, put, select, takeLatest, combineLatest } from 'redux-saga/effects';
 import { LOAD_TRIPS_LIST } from './constants';
 import { loadTripsList, tripsListLoaded, tripsListLoadingError } from './actions';
 
@@ -8,7 +8,8 @@ import request from 'utils/request';
 
 function* getList(action)
 {
-  const requestURL = 'http://localhost:3001/trips/';
+  const currentUserId = 5;
+  const requestURL = 'http://localhost:3001/trips?driver.id=' + currentUserId;
   try {
     const data = yield call(request, requestURL);
     yield put(tripsListLoaded(data));

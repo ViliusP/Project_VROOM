@@ -11,30 +11,27 @@ import propTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import Wrapper from './Wrapper';
-import Item from './Item';
 function ListItem(props) {
-  const {
-    id, 
-    city1, 
-    city2, 
-    city3, 
-    city4, 
-    city5,
-    departure_from,
-    departure_to,
-    cost,
-    space,
-    driver
-  } = props.item;
+  const { city, departure_time_from, departure_time_to, cost, space, info } = props.item;
+
+  const cityList = (length) =>
+  {
+    return city.map((citi, index) => 
+    {
+      if(index < length-1)
+      return citi + "-";
+      else return citi;
+    });
+  } 
   return (
     <Wrapper>
-      <p> {driver} </p> 
-      <ul>
-        <item> <FormattedMessage {...messages.cost} />: {cost} $</item>
-        <item> <FormattedMessage {...messages.space} />: {space} </item> 
-        <item> <FormattedMessage {...messages.route} />: {city1} - {city5} </item> 
-      </ul>
-      </Wrapper>
+      <div><FormattedMessage {...messages.route} />: {cityList(city.length)} </div>
+      <div> <FormattedMessage {...messages.cost} />: {cost} </div>
+      <div><FormattedMessage {...messages.space} />: {space} </div>
+      <div><FormattedMessage {...messages.date} />: {departure_time_from} </div>
+      <div><FormattedMessage {...messages.time} />: {departure_time_from} - {departure_time_to}  </div>
+      <div><FormattedMessage {...messages.info} />: {info} </div>
+     </Wrapper>
   );
 }
 

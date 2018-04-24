@@ -21,6 +21,22 @@ export default defineMessages({
     defaultMessage: "Free space"
   },
 
+  date: {
+    id: 'app.components.ListItem.date',
+    defaultMessage: "Date"
+  },
+
+  time: {
+    id: 'app.components.ListItem.time',
+    defaultMessage: "Time"
+  },
+
+  info: {
+    id: 'app.components.ListItem.info',
+    defaultMessage: "Additional information"
+  },
+
+
   route: {
     id: 'app.components.ListItem.route',
     defaultMessage: "Route"

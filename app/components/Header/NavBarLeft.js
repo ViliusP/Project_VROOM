@@ -6,4 +6,3 @@ const NavBarLeft = styled.div.attrs({
 `
 
 export default NavBarLeft;
-
