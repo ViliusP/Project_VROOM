@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import { compose } from 'redux';
 import Container from 'components/Container';
-import Modal from 'containers/Modal/Loadable';
+import Modal from 'containers/Modal/';
 
 import messages from './messages';
 
@@ -23,7 +23,7 @@ function Home() {
           Hello everybody
         </div>
       </div>
-      <Modal modalButton="Open Modal" modalContent="Testing"/>
+      <Modal modalButton='Open Modal' modalContent={<form><input className="input is-large" type="email" placeholder="Your Email" autofocus=""/><input className="input is-large" type="password" placeholder="Your Password"/><button class="button is-block is-info is-large is-fullwidth">Login</button></form>}/>
       </Container>
     </div>
   );
