@@ -1,9 +1,8 @@
 import { createSelector } from 'reselect';
-
 /**
  * Direct selector to the searchedTripList state domain
  */
-const selectSearchedTripListDomain = (state) => state.get('searchedTripList');
+const selectListState = (state) => state.get('searchedTripList');
 
 /**
  * Other specific selectors
@@ -13,13 +12,26 @@ const selectSearchedTripListDomain = (state) => state.get('searchedTripList');
 /**
  * Default selector used by SearchedTripList
  */
-
 const makeSelectSearchedTripList = () => createSelector(
-  selectSearchedTripListDomain,
+  selectListState,
   (substate) => substate.toJS()
 );
 
-export default makeSelectSearchedTripList;
+
+const makeSelectLoading = () => createSelector(
+  selectListState,
+  (substate) => substate.get('loading')
+);
+
+const makeSelectData = () => createSelector(
+  selectListState,
+  (substate) => substate.get('data')
+);
+
 export {
-  selectSearchedTripListDomain,
+  selectListState,
+  makeSelectSearchedTripList,
+  makeSelectData,
+  makeSelectLoading,
+  makeSelectError
 };

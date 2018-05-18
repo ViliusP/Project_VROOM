@@ -34,10 +34,6 @@ import {
   searchTrips
 } from 'containers/SearchedTripList/actions';
 
-import {
-  makeSelectSearchTripList
-} from 'containers/SearchedTripList/selectors';
-
 import SearchTripButton from 'components/SearchTripButton';
 
 import Buttons from 'components/Buttons/Buttons';
@@ -46,20 +42,18 @@ import Button from 'components/Buttons/Button';
 import Control from 'components/FormElements/Control';
 import Field from 'components/FormElements/Field';
 import Label from 'components/FormElements/Label';
-import Select from 'components/FormElements/Select';
 import Text from 'components/FormElements/Text';
 import Input from 'components/FormElements/Input';
 import GroupedField from 'components/FormElements/GroupedField';
 import StaticButton from 'components/FormElements/StaticButton';
-import FieldWithAddons from 'components/FormElements/FieldWithAddons'; //Kažkurios import reik ištrinti, nes nereikalingi, nes visus atkopinau iš SearchTripForm konteinerio
-import makeSelectSearchedTripList from '../SearchedTripList/selectors';
 
+import { makeSelectSearchedTripList } from 'containers/SearchedTripList/selectors';
 
 
 export class SearchTripForm extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
-    const placeholderCityFrom = 'City from, e.g. \"Tauragė\"';
-    const placeholderCityTo = 'City to, e.g. \"Kaunas\"';
+    const placeholderCityFrom = 'City from, e.g. Tauragė';
+    const placeholderCityTo = "'City to, e.g. 'Kaunas.'";
     const placeholderDateFrom = '2018-03-30T20:00:00.861Z';
     const placeholderDateTo = '2018-03-30T21:00:00.861Z';
 
@@ -80,7 +74,7 @@ export class SearchTripForm extends React.PureComponent { // eslint-disable-line
         <Field>
           <Label>{labelTo}</Label>
           <Control>
-            <Input placeholder={placeholderCityTo} value = {this.props.CityTo} onChange = {this.props.onChangeCityTo}/>
+            <Input placeholder={placeholderCityTo} value={this.props.CityTo} onChange = {this.props.onChangeCityTo}/>
           </Control>
         </Field>
       </GroupedField>
@@ -89,7 +83,7 @@ export class SearchTripForm extends React.PureComponent { // eslint-disable-line
           <Field>
             <Label>{labelDateFrom}</Label>
             <Control>
-              <Input placeholder={placeholderDateFrom} value = {this.props.DateFrom} onChange = {this.props.onChangeDateFrom}/>
+              <Input placeholder={placeholderDateFrom}  value = {this.props.DateFrom} onChange = {this.props.onChangeDateFrom}/>
             </Control>
           </Field>
 
@@ -102,7 +96,7 @@ export class SearchTripForm extends React.PureComponent { // eslint-disable-line
         </GroupedField>
         
         <Buttons>
-          <SearchTripButton clickAction = {this.props.submitForm} loading = {false} error ={false} />
+          <SearchTripButton clickAction = {this.props.submitForm} loading = {false} error ={false} /> 
           <Button onClick = {this.props.onResetForm}>Reset</Button>  
         </Buttons>
       </div>

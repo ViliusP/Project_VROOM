@@ -13,19 +13,24 @@ import { compose } from 'redux';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectSearchedTripList from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
-import SearchListElement from '../../components/SearchListElement';
-
+import SearchListElement from 'components/SearchListElement';
+import { makeSelectData }  from './selectors';
 
 export class SearchedTripList extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
-    console.log(this.props.searchedtriplist)
+    if(this.props.data)
+    {
       return (
-      <SearchListElement/>
-    );
+          <div>
+            {this.props.data.map((x, index) => <SearchListElement key = {index} trip = {x}/>)}
+          </div>      
+      );
+    } else {
+        return (<div/>)
+    }
   }
 }
 
@@ -34,7 +39,7 @@ SearchedTripList.propTypes = {
 };
 
 const mapStateToProps = createStructuredSelector({
-  searchedtriplist: makeSelectSearchedTripList(),
+  data: makeSelectData(),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -43,8 +48,8 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
 const withReducer = injectReducer({ key: 'searchedTripList', reducer });
 const withSaga = injectSaga({ key: 'searchedTripList', saga });
 

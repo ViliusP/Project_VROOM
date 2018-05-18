@@ -21,6 +21,7 @@ import Header from 'components/Header/';
 import Footer from 'components/Footer/';
 import SearchTrips from 'containers/SearchTrips';
 import ManageTrips from 'containers/ManageTrips';
+import Modal from 'containers/Modal';
 export default function App() {
   return (
     <div>
@@ -32,6 +33,7 @@ export default function App() {
         <Route component={NotFoundPage} />
       </Switch>
       <Footer/>
+      <Modal/>
     </div>
   );
 }

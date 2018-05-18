@@ -13,13 +13,29 @@ import Container from 'components/Container';
 
 import messages from './messages';
 
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { faHandPeace } from '@fortawesome/fontawesome-free-solid';
+
 function Home() {
+  var style = 
+  {
+    color: 'pink',
+    padding: '0px 10px'
+  }
   return (
     <div>
       <Container>
       <div className='columns'>  
         <div className='column'>  
-          Hello everybody
+        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
         </div>
       </div>
       </Container>

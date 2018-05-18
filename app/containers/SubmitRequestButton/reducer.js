@@ -1,38 +1,33 @@
 /*
  *
- * SearchedTripList reducer
+ * SubmitRequest reducer
  *
  */
 
 import { fromJS } from 'immutable';
 import {
-  SEARCH_TRIPS,
-  SEARCH_TRIPS_SUCCESS,
-  SEARCH_TRIPS_ERROR,
-  SET_INITIAL_STATE,
+  SUBMIT_REQUEST,
+  SUBMIT_REQUEST_SUCCESS,
+  SUBMIT_REQUEST_ERROR
 } from './constants';
 
 const initialState = fromJS({
   loading: false,
-  error: false,
-  data: false,
+  error: false
 });
 
-function searchedTripListReducer(state = initialState, action) {
+function submitRequestReducer(state = initialState, action) {
   switch (action.type) {
-    case SEARCH_TRIPS:
+    case SUBMIT_REQUEST:
       return state
-      .set('date', [])
       .set('loading', true)
       .set('error', false);
-    case SEARCH_TRIPS_SUCCESS:
+    case SUBMIT_REQUEST_SUCCESS:
       return state
-      .set('data', action.data)
       .set('loading', false)
       .set('error', false);
-    case SEARCH_TRIPS_ERROR:
+    case SUBMIT_REQUEST_ERROR:
       return state
-      .set('data', [])
       .set('loading', false)
       .set('error', action.error);
     default:
@@ -40,4 +35,4 @@ function searchedTripListReducer(state = initialState, action) {
   }
 }
 
-export default searchedTripListReducer;
+export default submitRequestReducer;

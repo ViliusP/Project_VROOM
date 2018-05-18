@@ -6,6 +6,7 @@ const MediaArticle = styled.article.attrs({
   border-style: solid;
   border-color: #e5e5e5;
   border-width: 1px;
+  padding: 13px;
 `
 
 export default MediaArticle;

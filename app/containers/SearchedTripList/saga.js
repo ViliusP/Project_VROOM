@@ -4,14 +4,30 @@ import {
   searchTripsSuccess,
   searchTripsError
 } from './actions';
+
+import {
+  makeSelectCityFrom,
+  makeSelectCityTo,
+  makeSelectDateFrom,
+  makeSelectDateTo
+} from 'containers/SearchTripForm/selectors';
+
 import request from 'utils/request';
 
 
 function* search(action)
 {
-  const requestURL = 'http://localhost:3001/trips';
+  const currentUser = 5;
+  const CityFrom = yield select(makeSelectCityFrom());
+  const CityTo = yield select(makeSelectCityTo());
+  const DateFrom = yield select(makeSelectDateFrom());
+  const DateTo = yield select(makeSelectDateTo());
+  console.log(CityFrom + " " + CityTo + " " + DateFrom + " " + DateTo);
+  const requestURL = 'http://localhost:3001/trips?driver.id_ne=' + currentUser;
+  //const requestURL = 'http://localhost:3001/trips';
   try{
     const data = yield call(request, requestURL);
+    
     yield put(searchTripsSuccess(data));
   } catch(error) {
     yield put(searchTripsError(error));
