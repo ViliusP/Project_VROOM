@@ -9,7 +9,6 @@ function* fetchRequests(action)
   const requestURL = 'http://localhost:3001/requests?trip.tripID=' + action.id;
   try {
     const data = yield call(request, requestURL);
-    console.log(data);
     yield put(fetchTripRequestsSuccess(data));
   } catch(error) {
     yield put(fetchTripRequestsError(error));

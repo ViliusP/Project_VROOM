@@ -4,14 +4,13 @@ const Wrapper = styled.div.attrs({
     className: 'box',
 })`
     background: #e6fffb;
-    border-radius: 8px;
     &:hover {
         background-color: #ffff;
     }
     &:focus {
         background-color: red;
     }
-
+    margin-bottom: 7px;
 `;
 
 export default Wrapper;

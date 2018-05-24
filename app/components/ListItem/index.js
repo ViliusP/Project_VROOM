@@ -24,15 +24,13 @@ function ListItem(props) {
     });
   } 
   return (
-    <Wrapper>
-      <div onClick={props.clickEvent}>
+      <div>
         <div><FormattedMessage {...messages.route} />: {cityList(city.length)} </div>
         <div> <FormattedMessage {...messages.cost} />: {cost} </div>
         <div><FormattedMessage {...messages.space} />: {space} </div>
         <div><FormattedMessage {...messages.date} />: {departure_date} </div>
         <div><FormattedMessage {...messages.info} />: {info} </div>
       </div>
-     </Wrapper>
   );
 }
 

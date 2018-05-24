@@ -25,8 +25,8 @@ import messages from './messages';
 import ListItem from 'components/ListItem/';
  
 
-import { fetchTripRequests } from 'containers/TripRequestList/actions';
 import { loadTripsList } from './actions';
+import SelectTripElement from '../SelectTripElement';
 
 export class TripsList extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function'
 
@@ -36,7 +36,7 @@ export class TripsList extends React.PureComponent { // eslint-disable-line reac
 
   render() {
     const { data, error, loading } = this.props;
-    return loading ? <div> Loading </div> : (error == false ?  <div  >{data.map((trip, index) =>  <ListItem key={index} item={trip} clickEvent={(e) => {this.props.tryLoadRequests(e, trip.id)} }/>)    }</div>: <div>{error.message}</div>) 
+    return loading ? <div> Loading </div> : (error == false ?  <div  >{data.map((trip, index) =>  <SelectTripElement key={index} item={trip} />)}</div>: <div>{error.message}</div>) 
   }
 }
 
@@ -66,10 +66,6 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     loadTrips: () => { dispatch(loadTripsList()) },
-    tryLoadRequests: (e,id) => {
-      event.preventDefault();
-      dispatch(fetchTripRequests(id));    
-    },
   };
 }
 

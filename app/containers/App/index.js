@@ -20,7 +20,7 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header/';
 import Footer from 'components/Footer/';
 import SearchTrips from 'containers/SearchTrips';
-import ManageTrips from 'containers/ManageTrips';
+import ManageTrips from 'containers/ManageTrips/Loadable';
 import Modal from 'containers/Modal';
 export default function App() {
   return (

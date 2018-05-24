@@ -17,7 +17,7 @@ import makeSelectTripRequestList from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
-import { defaultAction } from './actions';
+import { makeSelectTrip } from 'containers/SelectTripElement/selectors';
 
 import RequestCardItem from 'components/RequestCardItem';
 import { request } from 'https';
@@ -28,11 +28,12 @@ export class TripRequestList extends React.PureComponent { // eslint-disable-lin
       data
      } = this.props.triprequestlist;
     var EmptyMessage = '';
-    if(data.length <= 0)
-    {
-      EmptyMessage = 'There is no requests for chosen trip'
-    }
 
+    if(this.props.selectedTrip === null) 
+      EmptyMessage = 'Please select trip';
+    else if(data.length <= 0)
+      EmptyMessage = 'There is no requests for chosen trip';
+  
     return (
       <div>
      {data ? data.map((request) => <RequestCardItem key={request.id}/> ) : {error}}
@@ -47,6 +48,7 @@ TripRequestList.propTypes = {
 
 const mapStateToProps = createStructuredSelector({
   triprequestlist: makeSelectTripRequestList(),
+  selectedTrip: makeSelectTrip()
 });
 
 function mapDispatchToProps1 (dispatch) {
