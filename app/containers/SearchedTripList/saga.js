@@ -17,7 +17,7 @@ import request from 'utils/request';
 
 function* search(action)
 {
-  const currentUser = 5;
+  const currentUser = 4;
   const CityFrom = yield select(makeSelectCityFrom());
   const CityTo = yield select(makeSelectCityTo());
   const DateFrom = yield select(makeSelectDateFrom());

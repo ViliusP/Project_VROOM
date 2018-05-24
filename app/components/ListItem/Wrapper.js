@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div.attrs({
-    className: 'column',
+    className: 'box',
 })`
     background: #e6fffb;
     border-radius: 8px;
-    margin: 10px 0px;
-    border: 3px solid #ffff;
+    &:hover {
+        background-color: #ffff;
+    }
+    &:focus {
+        background-color: red;
+    }
+
 `;
 
 export default Wrapper;

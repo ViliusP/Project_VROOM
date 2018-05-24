@@ -16,8 +16,6 @@ import {
   makeSelectCityFrom,
   makeSelectCityTo,
   makeSelectDepartureDate,
-  makeSelectTimeFrom,
-  makeSelectTimeTo,
   makeSelectSpace,
   makeSelectPrice,
   makeSelectInfo,
@@ -46,8 +44,6 @@ import {
   changeCityTo,
   changeCityFrom,
   changeDepartureDate,
-  changeTimeFrom,
-  changeTimeTo,
   changeSpace,
   changeCityPrice,
   changeCityInfo,
@@ -66,8 +62,6 @@ export class CreateTripForm extends React.PureComponent { // eslint-disable-line
     const labelSpace = "Free space";
 
     const placeHolderDate= "2018-12-04";
-    const placeHolderTripFrom = "10:30";
-    const placeHolderTripTo = "12:30";
     const placeHolderText = "e.g. Hello World!";
     const placeholderCityFrom = "Kaunas";
     const placeholderCityTo = "Tauragė";
@@ -100,29 +94,17 @@ export class CreateTripForm extends React.PureComponent { // eslint-disable-line
                 <Input placeholder={placeHolderDate} value={this.props.DepartureDate} onChange = {this.props.onChangeDepartureDate}/>
               </Control>
             </Field>
-        
-            <Field>
-              <Label>{labelTripFrom}</Label>
-              <Control>
-                <Input placeholder={placeHolderTripFrom} value={this.props.TimeFrom} onChange = {this.props.onChangeTimeFrom}/>
-              </Control>
-            </Field>
-
-            <Field>
-              <Label>{labelTripTo}</Label>
-              <Control>
-                <Input placeholder={placeHolderTripTo} value={this.props.TimeTo} onChange = {this.props.onChangeTimeTo}/>
-              </Control>
-            </Field>
           </GroupedField>
 
+          <GroupedField>
           <Field>
             <Label>{labelSpace}</Label>
             <Control>
               <Input placeholder={placeholderSpace} value={this.props.Space} onChange = {this.props.onChangeSpace}/>
             </Control>
           </Field>
-          
+          </GroupedField>
+
           <Field>
           <Label>{labelPrice}</Label>
             <FieldWithAddons>
@@ -156,18 +138,14 @@ CreateTripForm.propTypes = {
   onChangeCityFrom: PropTypes.func,
   onChangeCityTo: PropTypes.func,
   onChangeDepartureDate: PropTypes.func,
-  onChangeTimeTo: PropTypes.func,
-  onChangeTimeFrom: PropTypes.func,
   onChangeSpace: PropTypes.func,
   onChangePrice: PropTypes.func,
   onChangeInfo: PropTypes.func,
   CityFrom: PropTypes.string,
   CityTo: PropTypes.string,
   DepartureDate: PropTypes.string,
-  TimeFrom: PropTypes.string,
-  TimeTo: PropTypes.string,
-  Space: PropTypes.number,
-  Price: PropTypes.number,
+  Space: PropTypes.string,
+  Price: PropTypes.string,
   Info: PropTypes.string,
 };
 
@@ -175,8 +153,6 @@ const mapStateToProps = createStructuredSelector({
   CityTo: makeSelectCityTo(),
   CityFrom: makeSelectCityFrom(),
   DepartureDate: makeSelectDepartureDate(),
-  TimeFrom: makeSelectTimeFrom(),
-  TimeTo: makeSelectTimeTo(),
   Space: makeSelectSpace(),
   Price: makeSelectPrice(),
   Info: makeSelectInfo(),
@@ -187,8 +163,6 @@ function mapDispatchToProps(dispatch) {
     onChangeCityFrom: (evt) => {dispatch(changeCityFrom(evt.target.value));},
     onChangeCityTo: (evt) => {dispatch(changeCityTo(evt.target.value));},
     onChangeDepartureDate: (evt) => {dispatch(changeDepartureDate(evt.target.value));},
-    onChangeTimeFrom: (evt) => {dispatch(changeTimeFrom(evt.target.value));},
-    onChangeTimeTo: (evt) => {dispatch(changeTimeTo(evt.target.value));},
     onChangeSpace: (evt) => {dispatch(changeSpace(evt.target.value));},
     onChangePrice: (evt) => {dispatch(changeCityPrice(evt.target.value));},
     onChangeInfo: (evt) => {dispatch(changeCityInfo(evt.target.value));},

@@ -12,7 +12,7 @@ import messages from './messages';
 import MediaArticle from '../MediaObject/MediaArticle';
 import MediaLeft from '../MediaObject/MediaLeft';
 import MediaRight from '../MediaObject/MediaRight';
-import Image64x64 from '../MediaObject/Image64x64';
+import Image48x48 from '../MediaObject/Image48x48';
 import MediaContent from '../MediaObject/MediaContent';
 import Content from '../MediaObject/Content';
 import Container from 'components/Container';
@@ -31,33 +31,35 @@ function SearchListElement(props) {
     });
   }
   return (
-    <MediaArticle>
-      <MediaLeft>
-        <Image64x64>
-          <img src="https://bulma.io/images/placeholders/128x128.png"/>
-        </Image64x64>
-      </MediaLeft>
-        <MediaContent>
-          <Content>
-          <p>
-            <strong>{props.trip.driver.name} {props.trip.driver.surname}</strong> <small>@nickname</small> <small>XX min</small>
-            <br/>
-            {cityList()}
-            <br/>
-            {props.trip.departure_time_from} - {props.trip.departure_time_to} 
-            <br/>
-            free space: {props.trip.space}
-            <br/>
-            cost: {props.trip.cost}
-            <br/>
-            Additional information: {props.trip.info}
-          </p>
-          </Content>
+    <div className='box'>
+      <MediaArticle>
+        <MediaLeft>
+          <Image48x48>
+            <img src='https://bulma.io/images/placeholders/128x128.png'/>
+          </Image48x48>
+        </MediaLeft>
+          <MediaContent>
+            <Content>
+              <p>
+                <strong>{props.trip.driver.name} {props.trip.driver.surname}</strong> <small>@nickname</small> <small>XX min</small>
+                <br/>
+                {cityList()}
+                <br/>
+                {props.trip.departure_date}
+                <br/>
+                free space: {props.trip.space}
+                <br/>
+                cost: {props.trip.cost}
+                <br/>
+                Additional information: {props.trip.info}
+              </p>
+            </Content>
 
-          <SearchedListNav tripID = {props.trip.id}/>
+            <SearchedListNav tripID = {props.trip.id}/>
 
-        </MediaContent>
-    </MediaArticle>
+          </MediaContent>
+      </MediaArticle>
+    </div>
   );
 }
 

@@ -16,6 +16,8 @@ import messages from './messages';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faHandPeace } from '@fortawesome/fontawesome-free-solid';
 
+import RequestManager from 'containers/RequestManager';
+
 function Home() {
   var style = 
   {
@@ -25,20 +27,21 @@ function Home() {
   return (
     <div>
       <Container>
-      <div className='columns'>  
-        <div className='column'>  
-        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
-        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
-        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
-        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
-        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
-        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
-        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
-        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
-        <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+        <div className='columns'>  
+          <div className='column'>  
+          <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+          <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+          <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+          <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+          <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+          <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+          <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+          <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+          <FontAwesomeIcon icon={faHandPeace} size='10x'  spin style={style}/>
+          </div>
         </div>
-      </div>
       </Container>
+      
     </div>
   );
 }

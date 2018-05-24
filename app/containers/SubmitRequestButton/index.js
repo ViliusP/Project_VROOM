@@ -23,7 +23,7 @@ export class SubmitRequestButton extends React.PureComponent { // eslint-disable
   render() {
     return (
       <div>
-        <SearchTripButton clickAction={this.props.tryToSubmit} loading={this.props.submitrequest.loading} error={this.props.submitrequest.error}/>
+        <SearchTripButton clickAction={(e) => {this.props.tryToSubmit(e, this.props.id)}} loading={this.props.submitrequest.loading} error={this.props.submitrequest.error}/>
       </div>
     );
   }
@@ -39,11 +39,11 @@ const mapStateToProps = createStructuredSelector({
 
 function mapDispatchToProps(dispatch) {
   return {
-    tryToSubmit: (evt) => 
+    tryToSubmit: (evt, id) => 
     {
       if (evt !== undefined && evt.preventDefault) 
         evt.preventDefault();
-      dispatch(SubmitRequest());
+      dispatch(SubmitRequest(id));
     },
   };
 }

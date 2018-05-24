@@ -23,18 +23,20 @@ import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 import ListItem from 'components/ListItem/';
+ 
 
+import { fetchTripRequests } from 'containers/TripRequestList/actions';
 import { loadTripsList } from './actions';
 
 export class TripsList extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function'
 
   componentDidMount() {
-    this.props.loadTripsList();
+    this.props.loadTrips();
   }
 
   render() {
     const { data, error, loading } = this.props;
-    return loading ? <div> Loading </div> : (error == false ?  <div>{data.map((trip, index) =>  <ListItem key={index} item={trip}/>)}</div>: <div>{error.toString()}</div>) 
+    return loading ? <div> Loading </div> : (error == false ?  <div  >{data.map((trip, index) =>  <ListItem key={index} item={trip} clickEvent={(e) => {this.props.tryLoadRequests(e, trip.id)} }/>)    }</div>: <div>{error.message}</div>) 
   }
 }
 
@@ -61,8 +63,15 @@ const mapStateToProps = createStructuredSelector({
   loading: makeSelectTripsLoading(),
 });
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({ loadTripsList }, dispatch);
+function mapDispatchToProps(dispatch) {
+  return {
+    loadTrips: () => { dispatch(loadTripsList()) },
+    tryLoadRequests: (e,id) => {
+      event.preventDefault();
+      dispatch(fetchTripRequests(id));    
+    },
+  };
+}
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 

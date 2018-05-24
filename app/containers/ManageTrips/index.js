@@ -12,11 +12,13 @@ import { compose } from 'redux';
 import Container from 'components/Container';
 import CreateTripForm from 'containers/CreateTripForm';
 import TripsList from 'containers/TripsList/Loadable';
-
 import Section from 'components/Section';
 
+import RequestManager from 'containers/RequestManager';
+import  TripRequestList  from '../TripRequestList';
 
 function ManageTrips() {
+
   return (
     <div>
       <Section>
@@ -27,7 +29,25 @@ function ManageTrips() {
         </h2>
         <CreateTripForm/>
         <hr/>
-        <TripsList/>
+        <div>
+          <div className='box'>
+            <div className="columns">
+
+              <div className='column'>
+                <h3 className="title is-4">Here you can manage your trips</h3>
+                <h4 className="subtitle">Press on trip to accept or cancel traveler request to your trip</h4>
+              </div>
+            
+              <div className='column'>
+                <RequestManager/>
+              </div>
+            </div>
+          </div>
+          <div className="columns">
+            <div className='column'>  <TripsList/> </div>
+            <div className='column'>  <TripRequestList/> </div>
+          </div>
+        </div>
         <hr/>
         </Container>
       </Section>

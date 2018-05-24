@@ -9,8 +9,6 @@ import {
   CHANGE_CITY_TO,
   CHANGE_CITY_FROM,
   CHANGE_DEPARTURE_DATE,
-  CHANGE_TIME_FROM,
-  CHANGE_TIME_TO,
   CHANGE_SPACE,
   CHANGE_PRICE,
   CHANGE_INFO,
@@ -21,8 +19,6 @@ const initialState = fromJS({
   CityTo: '',
   CityFrom: '',
   DepartureDate: '',
-  TimeFrom: '',
-  TimeTo: '',
   Space: '',
   Price: '',
   Info: ' ',
@@ -39,12 +35,6 @@ function createTripFormReducer(state = initialState, action) {
     case CHANGE_DEPARTURE_DATE:
       return state
       .set('DepartureDate', action.date);
-    case CHANGE_TIME_FROM:
-      return state
-      .set('TimeFrom', action.time);
-    case CHANGE_TIME_TO:
-      return state
-      .set('TimeTo', action.time);
     case CHANGE_SPACE:
       return state
       .set('Space', action.space);

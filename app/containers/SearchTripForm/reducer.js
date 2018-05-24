@@ -15,9 +15,9 @@ import {
 
 const initialState = fromJS({
   CityFrom: '',
-  CityTo: ' ', 
-  DateFrom: ' ',
-  DateTo: ' ',
+  CityTo: '', 
+  DateFrom: '',
+  DateTo: '',
 });
 
 function SearchedTripListReducer(state = initialState, action) {

@@ -22,20 +22,14 @@ function* putTrip(action)
     const userName = "Vilius";          //-----------------------------
     const userSurname = "Paliokas";     //Laikini duomenys 
     const userId = 5;                   //-----------------------------
-    const DepartureDate = yield select(makeSelectDepartureDate());
-    const TimeFrom = yield select(makeSelectTimeFrom());
-    const TimeTo = yield select(makeSelectTimeTo());
-    const date1 = DepartureDate + "T" + TimeFrom + "Z";
-    const date2 = DepartureDate + "T" + TimeTo + "Z";
-
+    const profileURL = "https://bulma.io/images/placeholders/128x128.png"
     const obj = { 
         id: '',
         city: [
             yield select(makeSelectCityFrom()),
             yield select(makeSelectCityTo()),
         ],
-        departure_time_from: new Date(date1),
-        departure_time_to: new Date(date2),
+        departure_date: yield select(makeSelectDepartureDate()),
         space: yield select(makeSelectSpace()),
         cost: yield select(makeSelectPrice()),
         info: yield select(makeSelectInfo()),
@@ -43,6 +37,7 @@ function* putTrip(action)
             id: userId,
             name: userName,
             surname: userSurname,
+            profileURL: profileURL
         },
     }
 

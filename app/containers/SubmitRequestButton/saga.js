@@ -8,9 +8,9 @@ import request from 'utils/request';
 import { Reset } from 'containers/SubmitRequestForm/actions';
 function* submit(action)
 {
-  const currentUser = 5;
-  const currentName = 'Vilius';
-  const currnetSurname = 'Paliokas';
+  const currentUser = 4;
+  const currentName = 'Aretas';
+  const currnetSurname = 'Paulauskas';
   const { address1, address2, info } = yield select(formState());
   const obj = {
     id: '',
@@ -22,7 +22,10 @@ function* submit(action)
       personID: currentUser,
       name: currentName,
       surname: currnetSurname,
-      profileURL: ''
+      profileURL: 'https://bulma.io/images/placeholders/128x128.png'
+    },
+    trip: {
+      tripID: action.id
     }
   }
 
@@ -39,7 +42,6 @@ function* submit(action)
     yield call(request, requestURL, options);
     yield put(SubmitRequestSuccess());
     yield put(Reset());
-    console.log("before");
   } catch (error){
     yield put(SubmitRequestError(error));
   }

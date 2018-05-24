@@ -48,7 +48,6 @@ export class SubmitRequestForm extends React.PureComponent { // eslint-disable-l
     const placeHolderText = '***************';
     const placeholderAddress1 = "Pick up from";
     const placeholderAddress2 = "Take to";
-
     return (
       <div>
         <GroupedField>
@@ -76,7 +75,7 @@ export class SubmitRequestForm extends React.PureComponent { // eslint-disable-l
         </Field>
 
         <Buttons>
-          <SubmitFormButton/>
+          <SubmitFormButton id = {this.props.tripID}/>
           <Button onClick = {this.props.resetForm}>Reset</Button>  
         </Buttons>
       </div>

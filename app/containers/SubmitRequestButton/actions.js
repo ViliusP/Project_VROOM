@@ -10,9 +10,10 @@ import {
   SUBMIT_REQUEST_ERROR
 } from './constants';
 
-export function SubmitRequest() {
+export function SubmitRequest(id) {
   return {
     type: SUBMIT_REQUEST,
+    id
   };
 }
 

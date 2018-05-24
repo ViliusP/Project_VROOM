@@ -9,12 +9,13 @@ import {
   LOAD_TRIPS_LIST,
   LOAD_TRIPS_LIST_SUCCESS,
   LOAD_TRIPS_LIST_ERROR,
+  CHOOSE_TRIP,
 } from './constants';
 
 const initialState = fromJS({
   loading: false,
   error: false,
-  data: [],
+  data: []
 })
 
 function tripsListReducer(state = initialState, action) {
